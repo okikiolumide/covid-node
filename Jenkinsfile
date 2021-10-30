@@ -10,18 +10,18 @@ pipeline{
 			stage('Run Tests') {
 						parallel {
 							stage('Test On Windows') {
-								agent {
-									label "windows"
-								}
+								#agent {
+								#	label "windows"
+								#}
 								steps {
 									echo "run-tests.bat"
 								}
 							}
 							
 							stage('Test On Linux') {
-								agent {
-									label "linux"
-								}
+								#agent {
+								#	label "linux"
+								#}
 								steps {
 									echo "run-tests.sh"
 								}
@@ -29,6 +29,7 @@ pipeline{
 							}
 						}
 			}
+
 			stage('Build'){
 				steps{
 					echo "Building Docker File" 
