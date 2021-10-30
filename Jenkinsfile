@@ -3,17 +3,19 @@ pipeline{
 		any
 		}
 		stages{
-			stage('SCM' )
+			stage('SCM' ){
 				steps{
 					echo "Cloning Git Repo"
 					
 				}
+		}
 
-			stage('Build')
+			stage('Build'){
 				steps{
 					echo "Building Docker File" 
 
 				}
+			}
 
 		}
 }
