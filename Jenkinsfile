@@ -1,7 +1,5 @@
 pipeline{
-	agent{
-		any
-		}
+	agent none
 		stages{
 			stage('SCM' ){
 				steps{
