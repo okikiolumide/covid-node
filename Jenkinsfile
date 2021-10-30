@@ -6,14 +6,28 @@ pipeline{
 					echo "Cloning Git Repo"
 					
 				}
-			stage('Security Checks){
-				       steps{
-					echo "Running Security Checks"
-				       }
+			}
+stage('Run Tests') {
+            parallel {
+                stage('Test On Windows') {
+                    agent {
+                        label "windows"
+                    }
+                    steps {
+                        echo "run-tests.bat"
+                    }
 				}
-				
-		}
-
+                
+                stage('Test On Linux') {
+                    agent {
+                        label "linux"
+                    }
+                    steps {
+                        echo "run-tests.sh"
+                    }
+                    
+                }
+            }
 			stage('Build'){
 				steps{
 					echo "Building Docker File" 
