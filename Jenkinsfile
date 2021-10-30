@@ -6,14 +6,12 @@ pipeline{
 					echo "Cloning Git Repo"
 					
 				}
-				steps{
+			stage('Security Checks){
+				       steps{
 					echo "Running Security Checks"
-					
+				       }
 				}
-				steps{
-					echo "Unit Testing"
-					
-				}
+				
 		}
 
 			stage('Build'){
