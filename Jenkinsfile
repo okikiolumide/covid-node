@@ -7,21 +7,17 @@ pipeline{
 					
 				}
 			}
-			stage('Run Tests') {
+			stage('Run Security Test') {
 						parallel {
-							stage('Test On Windows') {
-								#agent {
-								#	label "windows"
-								#}
+							stage('Check for Security Vulnerabilities') {
+								
 								steps {
 									echo "run-tests.bat"
 								}
 							}
 							
-							stage('Test On Linux') {
-								#agent {
-								#	label "linux"
-								#}
+							stage('Another Security Test') {
+								
 								steps {
 									echo "run-tests.sh"
 								}
@@ -35,6 +31,25 @@ pipeline{
 					echo "Building Docker File" 
 
 				}
+			}
+
+			stage('Run Tests') {
+						parallel {
+							stage('Test On Windows') {
+								
+								steps {
+									echo "run-tests.bat"
+								}
+							}
+							
+							stage('Test On Linux') {
+								
+								steps {
+									echo "run-tests.sh"
+								}
+								
+							}
+						}
 			}
 
 		}
