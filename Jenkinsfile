@@ -28,6 +28,7 @@ pipeline{
 								
 							}
 						}
+			}
 			stage('Build'){
 				steps{
 					echo "Building Docker File" 
